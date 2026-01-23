@@ -52,10 +52,16 @@ docker compose up --build -d
 
 # Acesse em http://localhost:8080/
 
+# Verificar o status do container e healthcheck
+docker compose ps
+# ou
+# docker inspect --format='{{json .State.Health}}' <container_id>
+
 # Parar e remover containers
 docker compose down
 ```
 
+> Nota: o Compose adiciona um healthcheck que verifica `http://localhost/` periodicamente. O container entra em estado `unhealthy` se o endpoint não responder com HTTP 200 em vários testes consecutivos.
 Também é possível criar e rodar a imagem manualmente:
 
 ```sh

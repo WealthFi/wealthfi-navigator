@@ -20,5 +20,11 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 # Replace default nginx config with SPA-friendly one
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
+# Install curl for healthcheck and add Docker HEALTHCHECK
+RUN apk add --no-cache curl
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost/ || exit 1
+
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
