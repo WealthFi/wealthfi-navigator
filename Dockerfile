@@ -9,7 +9,7 @@ COPY package*.json ./
 # Copy everything else and build
 COPY . .
 
-RUN npm ci --silent && npm run build
+RUN npm install --silent && npm run build
 
 # Stage 2: serve with nginx
 FROM nginx:stable-alpine
