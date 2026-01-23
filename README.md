@@ -62,7 +62,7 @@ docker compose down
 ```
 
 > Nota: o Compose adiciona um healthcheck que verifica `http://localhost/` periodicamente. O container entra em estado `unhealthy` se o endpoint não responder com HTTP 200 em vários testes consecutivos.
-Também é possível criar e rodar a imagem manualmente:
+> Também é possível criar e rodar a imagem manualmente:
 
 ```sh
 # Build da imagem
@@ -76,7 +76,6 @@ docker run -p 8080:80 --rm wealthfi-navigator
 
 > Observação: Em caso de problemas com dependências, rode `npm audit fix` ou use o gerenciador de pacotes da sua preferência.
 
-**Edit a file directly in GitHub**
 **Edit a file directly in GitHub**
 
 - Navigate to the desired file(s).
