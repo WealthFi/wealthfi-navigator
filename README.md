@@ -4,38 +4,47 @@
 
 **URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
 
-## How can I edit this code?
+## Desenvolvimento local 🚀
 
-There are several ways of editing your application.
+Você pode rodar este projeto localmente no seu computador para inspeção ou desenvolvimento.
 
-**Use Lovable**
+Requisitos mínimos:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- Node.js (recomendado >= 18)
+- Git
+- Opcional: Bun (há um `bun.lockb` se preferir usar Bun)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Passos rápidos:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# 1. Clone o repositório
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 2. Instale dependências (escolha um)
+# Com npm
+npm install
+# Ou, se usar bun
+# bun install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 3. Inicie o servidor de desenvolvimento
 npm run dev
+# ou (com bun)
+# bun run dev
+
+# O site ficará disponível por padrão em http://localhost:8080/
 ```
 
+Comandos úteis:
+
+- Build de produção: `npm run build`
+- Visualizar build localmente: `npm run preview`
+- Executar testes: `npm test`
+- Linter: `npm run lint`
+
+> Observação: Em caso de problemas com dependências, rode `npm audit fix` ou use o gerenciador de pacotes da sua preferência.
+
+**Edit a file directly in GitHub**
 **Edit a file directly in GitHub**
 
 - Navigate to the desired file(s).
@@ -50,15 +59,21 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+## Tecnologias usadas 🧰
 
-This project is built with:
+Este projeto foi desenvolvido com as seguintes tecnologias:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite** (bundler e servidor de desenvolvimento)
+- **React 18** com **TypeScript**
+- **Tailwind CSS** (+ animações via `tailwindcss-animate`)
+- **shadcn-ui** e **Radix UI** (sistema de componentes)
+- **@tanstack/react-query** (gerenciamento de dados assíncronos)
+- **react-router-dom** (rotas)
+- **@vitejs/plugin-react-swc** (integração React + SWC para builds rápidos)
+- **Vitest** e Testing Library (testes)
+- **ESLint** (linting) e ferramentas de build como PostCSS
+
+Também são usadas várias bibliotecas auxiliares: `recharts`, `lucide-react`, `zod`, `date-fns`, `sonner`, entre outras.
 
 ## How can I deploy this project?
 
