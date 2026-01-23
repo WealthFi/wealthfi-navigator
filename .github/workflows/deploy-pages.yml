@@ -50,4 +50,5 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Print deployed URL
-        run: echo "Deployed to: ${{ steps.deployment.outputs.page_url }}"
+        run: |
+          echo "Deployed to: ${{ steps.deployment.outputs.page_url }}"
