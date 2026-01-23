@@ -42,6 +42,32 @@ Comandos úteis:
 - Executar testes: `npm test`
 - Linter: `npm run lint`
 
+## Quickstart com Docker 🐳
+
+Se preferir, você pode rodar a aplicação em um container Docker usando Docker Compose. Isso cria a imagem, faz o build e serve o site com Nginx.
+
+```sh
+# Build e roda em background
+docker compose up --build -d
+
+# Acesse em http://localhost:8080/
+
+# Parar e remover containers
+docker compose down
+```
+
+Também é possível criar e rodar a imagem manualmente:
+
+```sh
+# Build da imagem
+docker build -t wealthfi-navigator .
+
+# Run (mapear porta 8080 do host -> 80 do container)
+docker run -p 8080:80 --rm wealthfi-navigator
+```
+
+> Nota: o Dockerfile faz um build de produção (`npm run build`) e utiliza o Nginx para servir os arquivos gerados. O compose expõe a aplicação na porta `8080` para evitar conflito com outros serviços.
+
 > Observação: Em caso de problemas com dependências, rode `npm audit fix` ou use o gerenciador de pacotes da sua preferência.
 
 **Edit a file directly in GitHub**
