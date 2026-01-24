@@ -37,6 +37,22 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Debug - where am I?
+        run: |
+          pwd
+          ls -la
+
+      - name: Debug - list dist
+        run: |
+          ls -la dist || true
+          echo "---- find dist (max depth 3) ----"
+          find dist -maxdepth 3 -type f -print || true
+
+      - name: Debug - assert entry file exists
+        run: |
+          test -f dist/index.html
+          echo "OK: dist/index.html exists"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
