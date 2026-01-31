@@ -55,7 +55,7 @@ const Privacy = () => {
       <h1 className="text-2xl font-bold">{data.title ?? "Política de Privacidade"}</h1>
       <p className="text-sm text-muted-foreground mt-2">Última atualização: {data.lastUpdated} • Versão: {data.version}</p>
 
-      <article className="mt-6 text-sm text-foreground prose prose-sm dark:prose-invert">
+      <article className="mt-6 text-base text-foreground prose dark:prose-invert leading-relaxed space-y-6 prose-a:text-primary prose-li:mb-2">
         <MarkdownErrorBoundary>
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </MarkdownErrorBoundary>
