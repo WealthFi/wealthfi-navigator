@@ -18,13 +18,13 @@ const Footer = () => {
           {/* Links */}
           <div className="flex items-center gap-6 text-sm">
             <a
-              href="#"
+              href="/wealthfi-navigator/terms"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Termos
             </a>
             <a
-              href="#"
+              href="/wealthfi-navigator/privacy"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Privacidade

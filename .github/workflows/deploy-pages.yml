@@ -37,6 +37,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Create SPA fallback 404
+        run: |
+          # GitHub Pages serves dist/404.html for unknown paths — copy index so SPA routes work
+          cp dist/index.html dist/404.html || true
+
       - name: Debug - where am I?
         run: |
           pwd
