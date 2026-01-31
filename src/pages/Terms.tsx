@@ -2,13 +2,14 @@ import React, { useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import termsRaw from "@/content/terms.md?raw";
+import MarkdownLayout from "@/components/MarkdownLayout";
 
 const Terms = () => {
   const parsed = useMemo(() => {
     // Manual frontmatter parser (avoids using gray-matter at runtime which can fail in some browser bundles)
     try {
       const fmMatch = termsRaw.match(/^---\s*([\s\S]*?)\s*---\s*/);
-      const data: Record<string, any> = {};
+      const data: Record<string, string> = {};
       if (fmMatch) {
         const fm = fmMatch[1];
         fm.split(/\r?\n/).forEach((line) => {
@@ -38,8 +39,7 @@ const Terms = () => {
     static getDerivedStateFromError(){
       return { hasError: true };
     }
-    componentDidCatch(error: any){
-      // eslint-disable-next-line no-console
+    componentDidCatch(error: unknown){
       console.error('Markdown render error:', error);
     }
     render(){
@@ -55,11 +55,9 @@ const Terms = () => {
       <h1 className="text-2xl font-bold">{data.title ?? "Termos de Uso"}</h1>
       <p className="text-sm text-muted-foreground mt-2">Última atualização: {data.lastUpdated} • Versão: {data.version}</p>
 
-      <article className="mt-6 text-base text-foreground prose dark:prose-invert leading-relaxed space-y-6 prose-a:text-primary prose-li:mb-2">
-        <MarkdownErrorBoundary>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
-        </MarkdownErrorBoundary>
-      </article>
+      <MarkdownErrorBoundary>
+        <MarkdownLayout content={content} />
+      </MarkdownErrorBoundary>
     </main>
   );
 };
