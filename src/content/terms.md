@@ -4,10 +4,6 @@ lastUpdated: "2026-01-31"
 version: "1.0"
 ---
 
-**Última atualização:** 31/01/2026
-
----
-
 ## 1. Aceitação dos termos
 
 Ao iniciar ou continuar uma conversa com o **WealthFi**, o usuário declara que:

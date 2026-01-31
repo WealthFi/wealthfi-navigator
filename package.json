@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "mkdir -p dist/wealthfi-navigator && cp -r dist/assets dist/wealthfi-navigator/ || true && cp dist/index.html dist/wealthfi-navigator/index.html || true",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
