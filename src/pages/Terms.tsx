@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import matter from "gray-matter";
 import termsRaw from "@/content/terms.md?raw";
 
-const parsed = matter(termsRaw);
-
 const Terms = () => {
+  const parsed = useMemo(() => {
+    try {
+      return matter(termsRaw);
+    } catch (err) {
+      // Safe fallback to avoid throwing at module import time
+      return { data: { title: "Termos de Uso", lastUpdated: "", version: "" }, content: "" };
+    }
+  }, []);
+
   const { data, content } = parsed;
 
   return (

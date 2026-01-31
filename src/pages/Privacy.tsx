@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import matter from "gray-matter";
 import privacyRaw from "@/content/privacy.md?raw";
 
-const parsed = matter(privacyRaw);
-
 const Privacy = () => {
+  const parsed = useMemo(() => {
+    try {
+      return matter(privacyRaw);
+    } catch (err) {
+      // If parsing fails, return safe defaults to avoid crashing the app
+      return { data: { title: "Política de Privacidade", lastUpdated: "", version: "" }, content: "" };
+    }
+  }, []);
+
   const { data, content } = parsed;
 
   return (
